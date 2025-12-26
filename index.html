@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Special Invite 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -9,16 +9,40 @@
 
 <audio id="bgMusic" src="music.mp3" loop></audio>
 
-<div class="page active" id="page1">
-  <h1 id="typingText"></h1>
+<div class="container">
 
-  <input type="text" id="username" placeholder="Your name ✨" />
-  <input type="text" id="relation" placeholder="What are you to Harsh? 😄" />
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <h1 id="typingText"></h1>
+    <input type="text" id="username" placeholder="Your Name" />
+    <input type="text" id="relation" placeholder="What are you to Harsh? 😄" />
+    <button onclick="goNext()">Continue</button>
+  </div>
 
-  <button onclick="goNext()">Continue</button>
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h2 id="greetText"></h2>
+    <p>Are you available on <b>18th January</b>?</p>
+    <button onclick="answer('yes')">Yes</button>
+    <button onclick="answer('no')">No</button>
+    <button onclick="answer('maybe')">Maybe</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <h2 id="finalText"></h2>
+    <button onclick="showInvite()">Continue 💖</button>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page" id="page4">
+    <h1>🎉 You're Invited 🎉</h1>
+    <p>18 January | 7 PM</p>
+    <p>Location: My Place 💫</p>
+    <p class="small">Bas aa jaana ❤️</p>
+  </div>
+
 </div>
-
-<div class="hearts"></div>
 
 <script src="script.js"></script>
 </body>

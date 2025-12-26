@@ -1,35 +1,49 @@
-const text = "Hey 👋 Before we begin...";
+let userName = "";
+let relation = "";
+
+const typingText = "Hey 👋 Before we begin...";
 let index = 0;
 
-function typeText() {
-  if (index < text.length) {
-    document.getElementById("typingText").innerHTML += text.charAt(index);
+function typeEffect() {
+  if (index < typingText.length) {
+    document.getElementById("typingText").innerHTML += typingText.charAt(index);
     index++;
-    setTimeout(typeText, 80);
+    setTimeout(typeEffect, 80);
   }
 }
-typeText();
+typeEffect();
 
 function goNext() {
-  const name = document.getElementById("username").value;
-  const relation = document.getElementById("relation").value;
+  userName = document.getElementById("username").value.trim();
+  relation = document.getElementById("relation").value.trim();
 
-  if (!name || !relation) {
+  if (!userName || !relation) {
     alert("Please fill both fields 😄");
     return;
   }
 
-  document.getElementById("bgMusic").play();
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
 
-  alert(`Hey ${name}! (${relation}) 💖\nLet’s continue...`);
+  document.getElementById("greetText").innerText =
+    `Hey ${userName} 👀 (${relation})`;
 }
 
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.querySelector(".hearts").appendChild(heart);
+function answer(type) {
+  let msg = "";
+  if (type === "yes") msg = "Perfect! Party confirmed 🎉";
+  if (type === "no") msg = "Arre yaar 😒 You have to come!";
+  if (type === "maybe") msg = "Maybe nahi chalega 😏";
 
-  setTimeout(() => heart.remove(), 6000);
-}, 800);
+  document.getElementById("page2").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
+  document.getElementById("finalText").innerText = msg;
+}
+
+function showInvite() {
+  document.getElementById("page3").classList.remove("active");
+  document.getElementById("page4").classList.add("active");
+
+  const music = document.getElementById("bgMusic");
+  music.play();
+}
