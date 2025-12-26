@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Special Invite 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <h1>Hey 👋</h1>
+    <p>Pehle apna naam batao</p>
+    <input type="text" id="username" placeholder="Your Name">
+    <button onclick="goNext()">Next</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h2 id="greet"></h2>
+    <p>18 January ko free ho?</p>
+    <button onclick="answer('yes')">Yes</button>
+    <button onclick="answer('no')">No</button>
+    <button onclick="answer('maybe')">Maybe</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <h2 id="responseText"></h2>
+    <button onclick="showInvite()">Continue</button>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page" id="page4">
+    <h1>🎉 You're Invited! 🎉</h1>
+    <p>18 January | 7 PM</p>
+    <p>Location: My Place 💖</p>
+
+    <button onclick="showGift()">Confused what to gift? 🎁</button>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div class="page" id="page5">
+    <h2>Bas aa jaana ❤️</h2>
+    <p>Tumhara hona hi kaafi hai 😌</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
