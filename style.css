@@ -125,6 +125,14 @@ button:active {
     width: auto;
     max-width: none;
   }
+  
+  /* Center the continue button specifically on page 1 */
+  #page1 button {
+    display: block;
+    margin: 20px auto 0;
+    width: 80%;
+    max-width: 250px;
+  }
 }
 
 /* Ensure proper touch targets */
