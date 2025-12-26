@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Special Invite 💖</title>
   <link rel="stylesheet" href="style.css">
-  </head>
+</head>
 <body>
 
-<audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
 <div class="container">
 
-  <!-- PAGE 1 -->
+  <!-- PAGE 1: Name and Relation Input -->
   <div class="page active" id="page1">
     <h1 id="typingText"></h1>
     <input type="text" id="username" placeholder="Your Name" />
@@ -20,24 +20,31 @@
     <button onclick="goNext()">Continue</button>
   </div>
 
-  <!-- PAGE 2 -->
+  <!-- PAGE 2: Availability Question -->
   <div class="page" id="page2">
     <h2 id="greetText"></h2>
     <p>Are you available on <b>18th January</b>?</p>
-    <button onclick="answer('yes')">Yes</button>
-    <button onclick="answer('no')">No</button>
-    <button onclick="answer('maybe')">Maybe</button>
+    <div class="button-group">
+      <button onclick="answer('yes')">Yes</button>
+      <button onclick="answer('no')">No</button>
+      <button onclick="answer('maybe')">Maybe</button>
+    </div>
   </div>
 
-  <!-- PAGE 3 -->
+  <!-- PAGE 3: Response Message -->
   <div class="page" id="page3">
     <h2 id="finalText"></h2>
-    <button onclick="showInvite()">Continue 💖</button>
+    <div class="loading" id="loadingIndicator" style="display: none;">
+      <div class="spinner"></div>
+      <p>Creating your special invite...</p>
+    </div>
+    <button onclick="showInvite()" id="continueBtn" style="display: none;">Continue 💖</button>
   </div>
 
-  <!-- PAGE 4 -->
+  <!-- PAGE 4: Personalized Invite -->
   <div class="page" id="page4">
     <h1>🎉 You're Invited 🎉</h1>
+    <div id="personalizedMessage"></div>
     <p>18 January | 7 PM</p>
     <p>Location: My Place 💫</p>
     <p class="small">Bas aa jaana ❤️</p>
