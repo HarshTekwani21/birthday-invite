@@ -5,40 +5,130 @@ body {
   color: white;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
   margin-top: 15vh;
+  padding: 0 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page {
   display: none;
+  padding: 20px 0;
 }
 
 .page.active {
   display: block;
 }
 
+h1, h2 {
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
 input {
-  padding: 12px;
-  width: 260px;
-  margin: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
   border-radius: 8px;
   border: none;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
-  padding: 12px 25px;
-  margin-top: 15px;
+  padding: 15px 30px;
+  margin: 10px 5px;
   font-size: 16px;
   background: #ff4d6d;
   border: none;
   border-radius: 25px;
   color: white;
   cursor: pointer;
+  min-width: 80px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background: #ff1f50;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Mobile-first approach */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 10vh;
+    padding: 0 15px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  input {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 8px 3px;
+  }
+}
+
+/* Smaller mobile devices */
+@media (max-width: 480px) {
+  .container {
+    margin-top: 8vh;
+    padding: 0 10px;
+  }
+  
+  h1 {
+    font-size: 22px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 6px 2px;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  #page2 button {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* Ensure proper touch targets */
+input, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
