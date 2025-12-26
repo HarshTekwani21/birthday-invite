@@ -1,27 +1,35 @@
-let userName = "";
+const text = "Hey 👋 Before we begin...";
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    document.getElementById("typingText").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeText, 80);
+  }
+}
+typeText();
 
 function goNext() {
-  userName = document.getElementById("username").value;
-  if (!userName) return alert("Naam likho pehle 😄");
+  const name = document.getElementById("username").value;
+  const relation = document.getElementById("relation").value;
 
-  document.getElementById("page1").classList.remove("active");
-  document.getElementById("page2").classList.add("active");
-  document.getElementById("greet").innerText =
-    "Hey " + userName + " 👀";
+  if (!name || !relation) {
+    alert("Please fill both fields 😄");
+    return;
+  }
+
+  document.getElementById("bgMusic").play();
+
+  alert(`Hey ${name}! (${relation}) 💖\nLet’s continue...`);
 }
 
-function answer(type) {
-  let msg = "";
-  if (type === "yes") msg = "Perfect! Party pakki 🎉";
-  if (type === "no") msg = "Arre yaar 😒 aana padega!";
-  if (type === "maybe") msg = "Maybe nahi chalega 😏";
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("span");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.querySelector(".hearts").appendChild(heart);
 
-  document.getElementById("page2").classList.remove("active");
-  document.getElementById("page3").classList.add("active");
-  document.getElementById("responseText").innerText = msg;
-}
-
-function showInvite() {
-  document.getElementById("page3").classList.remove("active");
-  document.getElementById("page4").classList.add("active");
-}
+  setTimeout(() => heart.remove(), 6000);
+}, 800);
